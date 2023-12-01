@@ -1,3 +1,7 @@
+
+
+
+
 # 10. Напишіть функцію find_word, яка приймає два параметри: перший text та другий word. Функція виконує пошук 
 # зазначеного слова word у тексті text за допомогою функції search та повертає словник.
 # 
@@ -57,8 +61,6 @@ def find_word(text, word):
         res['string'] = text
         
     return res
-        
-            
             
             
 print(find_word(
@@ -68,8 +70,27 @@ print(find_word(
 print(find_word(
     "Guido van Rossum began working on Python in the late 1980s, as a successor to the ABC programming language, and first released it in 1991 as Python 0.9.0.",
     "python")) 
-        
-    
-        
-            
-            
+
+# 11. Для закріплення матеріалу напишіть функцію find_all_words, яка шукає збіг слова в тексті. Функція повертає 
+# список всіх знаходжень слова в параметрі word в тексті у вигляді будь-якого написання, тобто, наприклад, можливі 
+# варіанти написання слова "Python" як pYthoN, pythOn, PYTHOn і т.і. головне, щоб зберігався порядок слів, регістр 
+# не має значення.
+# 
+# Підказка: функції модуля re приймають ще ключовий параметр flags і ми можемо визначити нечутливість до регістру, 
+# надавши йому значення re.IGNORECASE        
+
+import re
+
+
+def find_all_words(text, word):
+
+    return re.findall(word, text, re.IGNORECASE)
+
+
+print(find_all_words(
+    "Guido van Rossum began working on Python in the late 1980s, as a successor to the ABC programming language, and first released it in 1991 as Python 0.9.0.",
+    "Python"))            
+
+print(find_all_words(
+    "Guido van Rossum began working on Python in the late 1980s, as a successor to the ABC programming language, and first released it in 1991 as Python 0.9.0.",
+    "python")) 
